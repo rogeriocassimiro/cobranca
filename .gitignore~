@@ -1,0 +1,12 @@
+# Package Files #
+*.jar
+*.war
+*.ear
+*.class
+*.classpath
+*.settings
+*.project
+*.springBeans
+target
+.metadata
+.recommenders
