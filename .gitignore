@@ -11,3 +11,4 @@ target
 .metadata
 .recommenders
 *.mvn
+.gitignore~
