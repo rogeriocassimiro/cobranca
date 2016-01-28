@@ -12,6 +12,9 @@ import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.NumberFormat;
+
 import com.cassimiro.enumerado.EnumStatusTitulo;
 
 @Entity
@@ -24,8 +27,10 @@ public class Titulo {
 	private String descricao;
 
 	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Date dataVencimento;
 
+	@NumberFormat(pattern = "#,##0.00")
 	private BigDecimal valor;
 
 	@Enumerated(EnumType.STRING)
@@ -61,6 +66,14 @@ public class Titulo {
 
 	public void setDataVencimento(Date dataVencimento) {
 		this.dataVencimento = dataVencimento;
+	}
+
+	public EnumStatusTitulo getStatus() {
+		return status;
+	}
+
+	public void setStatus(EnumStatusTitulo status) {
+		this.status = status;
 	}
 
 }
