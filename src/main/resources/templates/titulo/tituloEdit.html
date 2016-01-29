@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns="http://wwww.w3.org/1999/xthml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" name="viewport"
+	content="width=device-width, initial-scale=1" />
+<title>Cadastro de título</title>
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="/css/style.css" />
+</head>
+<body>
+
+	<nav class="navbar navbar-inverse navbara-static-top">
+		<div class="container-fluid">
+			<div class="nav-header">
+				<a class="navbar-brand" href="#"> Cass <span
+					class="glyphicon glyphicon-star" aria-hidden="true">
+						Software</span>
+				</a>
+			</div>
+		</div>
+	</nav>
+
+	<form class="form-horizontal" method="POST"
+		action="/rest/titulo/salvar">
+
+		<div class="alert alert-success"
+			th:if="${!#strings.isEmpty(mensagem)}">
+			<span th:text="${mensagem}">Título salvo com sucesso !!!</span>
+		</div>
+
+		<div class="panel panel-primary" style="">
+			<div class="panel-heading">
+				<h1 class="panel-title">Novo título</h1>
+			</div>
+			<div class="panel-body">
+				<div class="row" style="margin-bottom: 10px;">
+					<div class="col-sm-6 text-left">
+						<a href="#" th:href="@{/rest/titulo/}" style="margin-right: 10px;"
+							class="btn btn-primary btn-xs"> <span
+							class="glyphicon glyphicon-menu-left"></span> Voltar
+						</a>
+						<button type="submit" class="btn btn-primary btn-xs">
+							<span class="glyphicon glyphicon-ok"></span> Salvar
+						</button>
+						<a href="#" th:href="@{/rest/titulo/testar(testar='asdf')}" style="margin-right: 10px;"
+							class="btn btn-primary btn-xs"> <span
+							class="glyphicon glyphicon-erase"></span> Limpar
+						</a>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="descricao" class="col-sm-2 control-label">Descrição</label>
+					<div class="col-sm-4">
+						<input type="text" class="form-control" id="descricao"
+							name="descricao" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="dataVencimento" class="col-sm-2 control-label">Data
+						de vencimento</label>
+					<div class="col-sm-2">
+						<input type="text" class="form-control" id="dataVencimento"
+							name="dataVencimento" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="valor" class="col-sm-2 control-label">Valor</label>
+					<div class="col-sm-2">
+						<input type="text" class="form-control" id="valor" name="valor" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="status" class="col-sm-2 control-label">Status</label>
+					<div class="col-sm-4">
+						<select class="form-control" name="status">
+							<option th:each="status : ${listaStatusTitulo}"
+								th:value="${status}" th:text="${status.descricao}"></option>
+						</select>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</form>
+
+	<script src="/js/jquery-2.2.0.min.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+</body>
+</html>

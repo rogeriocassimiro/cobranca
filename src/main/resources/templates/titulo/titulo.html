@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns="http://wwww.w3.org/1999/xthml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" name="viewport"
+	content="width=device-width, initial-scale=1" />
+<title>Títulos</title>
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="/css/style.css" />
+</head>
+
+<body>
+	<nav class="navbar navbar-inverse navbara-static-top">
+		<div class="container-fluid">
+			<div class="nav-header">
+				<a class="navbar-brand" href="#"> Cass <span
+					class="glyphicon glyphicon-star" aria-hidden="true">
+						Software </span>
+				</a>
+			</div>
+		</div>
+	</nav>
+
+	<div class="panel panel-primary">
+		<div class="panel-heading">
+			<h4 class="panel-title">Pesquisa de títulos</h4>
+		</div>
+		<div class="panel-body">
+			<div class="row">
+				<div class="col-sm-6 text-left">
+					<a href="#" th:href="@{/rest/titulo/}"
+						class="btn btn-primary btn-xs">
+						<span class="glyphicon glyphicon-refresh"></span>
+						Atualizar
+					 </a>
+					<a href="#" th:href="@{/rest/titulo/novo}"
+						class="btn btn-primary btn-xs">
+						<span class="glyphicon glyphicon-plus-sign"></span>
+						Novo
+					 </a>
+				</div>
+			</div>
+			<div class="table-responsive" style="margin-top: 10px;">
+				<table class="table-responsive table table-bordered table-striped">
+					<thead>
+						<tr>
+							<th class="text-center col-md-1">#</th>
+							<th>Descrição</th>
+							<th class="text-center col-md-2">Data de vencimento</th>
+							<th class="text-center col-md-2">Valor</th>
+							<th class="text-center col-md-2">Status</th>
+							<th class="text-center col-md-1">Ações</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="titulo : ${titulos}">
+							<td th:text="${titulo.codigo}"></td>
+							<td th:text="${titulo.descricao}"></td>
+							<td th:text="${titulo.dataVencimento}"></td>
+							<td th:text="${titulo.valor}"></td>
+							<td th:text="${titulo.status}"></td>
+							<td></td>
+						</tr>
+						<tr th:if="${titulos.empty}">
+							<td colspan="6" class="text-center">Nenhum registro
+								encontrado</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+</body>
+
+<script src="/js/jquery-2.2.0.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+
+</html>
