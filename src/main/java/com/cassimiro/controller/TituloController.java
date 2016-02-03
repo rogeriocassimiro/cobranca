@@ -16,19 +16,19 @@ import com.cassimiro.model.Titulo;
 import com.cassimiro.repository.TituloRepository;
 
 @Controller
-@RequestMapping("/rest/titulo/")
+@RequestMapping("/rest/titulo")
 public class TituloController {
 
 	@Autowired
 	private TituloRepository tituloRepository;
 	
-	@RequestMapping("novo")
+	@RequestMapping("/novo")
 	public ModelAndView novo(){
 		ModelAndView mv = new ModelAndView("/titulo/tituloEdit");
 		return mv;
 	}
 	
-	@RequestMapping(value = "salvar", method = RequestMethod.POST)
+	@RequestMapping(value = "/salvar", method = RequestMethod.POST)
 	public ModelAndView salvar(Titulo titulo){
 		tituloRepository.save(titulo);
 		ModelAndView mv = new ModelAndView("/titulo/tituloEdit");
@@ -43,7 +43,7 @@ public class TituloController {
 		return mv;
 	}
 	
-	@RequestMapping(value = "testar")
+	@RequestMapping(value = "/testar")
 	public void testar(@RequestParam String testar){
 		System.out.println(testar);
 	}
