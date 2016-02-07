@@ -8,6 +8,7 @@
 </head>
 
 <section layout:fragment="conteudo">
+
 	<div class="panel panel-default">
 		<div class="panel-heading">
 			<div class="clearfix">
@@ -22,25 +23,30 @@
 					<thead>
 						<tr>
 							<th class="text-center col-md-1">#</th>
-							<th>Descrição</th>
+							<th class="text-center col-md-5">Descrição</th>
 							<th class="text-center col-md-2">Data de vencimento</th>
-							<th class="text-center col-md-2">Valor</th>
-							<th class="text-center col-md-2">Status</th>
+							<th class="text-center  col-md-2">Valor</th>
+							<th class="text-center col-md-1">Status</th>
 							<th class="text-center col-md-1">Ações</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr th:each="titulo : ${titulos}">
-							<td th:text="${titulo.codigo}"></td>
+							<td th:text="${titulo.codigo}" class="text-center"></td>
 							<td th:text="${titulo.descricao}"></td>
-							<td th:text="${{titulo.dataVencimento}}"></td>
+							<td th:text="${{titulo.dataVencimento}}" class="text-center"></td>
 							<td th:text="|R$ ${{titulo.valor}}|"></td>
-							<td>
-								<span class="label" th:text="${titulo.status.descricao}"
-									th:classappend="${titulo.pendente ? 'label-danger' : 'label-success'}">
-s								</span>
-							</td>
-							<td></td>
+							<td class="text-center"><span class="label"
+								th:text="${titulo.status.descricao}"
+								th:classappend="${titulo.pendente ? 'label-danger' : 'label-success'}">
+							</span></td>
+							<td class="text-center"><a class="btn btn-link btn-xs"
+								th:href="@{/rest/titulo/editar/{codigo}(codigo=${titulo.codigo})}">
+									<span class="glyphicon glyphicon-pencil"></span>
+							</a> <a class="btn btn-link btn-xs"
+								th:href="@{/rest/titulo/remover/{codigo}(codigo=${titulo.codigo})}">
+									<span class="glyphicon glyphicon-remove"></span>
+							</a></td>
 						</tr>
 						<tr th:if="${#lists.isEmpty(titulos)}">
 							<td colspan="6" class="text-center">Nenhum registro
@@ -50,6 +56,9 @@ s								</span>
 				</table>
 			</div>
 		</div>
+		
+		<div laytou:include="dialogConfirmacao"></div>
+		
 	</div>
 </section>
 
