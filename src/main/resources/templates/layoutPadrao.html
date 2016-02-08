@@ -14,13 +14,16 @@
 
 	<header layout:include="cabecalho">
 	</header>
-
+	
+	<div th:include="mensagem" />
+	
 	<section layout:fragment="conteudo">
 		<p>Conteúdo principal</p>
 	</section>
 
 	<script src="/js/jquery-2.2.0.min.js"></script>
 	<script src="/js/bootstrap.min.js"></script>
+	<script src="/js/cobranca.js"></script>
 
 </body>
 </html>

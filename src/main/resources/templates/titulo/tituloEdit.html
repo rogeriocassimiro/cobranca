@@ -11,8 +11,7 @@
 	<form class="form-horizontal" method="POST"
 		action="/rest/titulo/salvar" th:object="${titulo}">
 
-		<div th:include="mensagem">
-		</div>
+		<div th:include="mensagemErro" />
 
 		<div class="panel panel-default" >
 			<div class="panel-heading">

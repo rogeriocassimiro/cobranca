@@ -61,9 +61,9 @@ public class TituloController {
 		return mv;
 	}
 	
-	@RequestMapping("/remover/{codigo}")
-	public String remover(@PathVariable("codigo") Titulo titulo, RedirectAttributes attributes){
-		this.tituloRepository.delete(titulo);
+	@RequestMapping(value = "/remover/{codigo}", method = RequestMethod.DELETE)
+	public String remover(@PathVariable("codigo") Long codigo, RedirectAttributes attributes){
+		this.tituloRepository.delete(codigo);;
 		attributes.addFlashAttribute("mensagem", "Registro excluído com sucesso!");
 		return REST_REDIRECT_LIST;
 	}

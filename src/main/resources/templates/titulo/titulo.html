@@ -43,8 +43,8 @@
 							<td class="text-center"><a class="btn btn-link btn-xs"
 								th:href="@{/rest/titulo/editar/{codigo}(codigo=${titulo.codigo})}">
 									<span class="glyphicon glyphicon-pencil"></span>
-							</a> <a class="btn btn-link btn-xs"
-								th:href="@{/rest/titulo/remover/{codigo}(codigo=${titulo.codigo})}">
+							</a> 
+							<a class="btn btn-link btn-xs" data-toggle="modal" data-target="#modalConfirmacao" th:attr="data-codigo=${titulo.codigo}, data-descricao=${titulo.descricao}"	>
 									<span class="glyphicon glyphicon-remove"></span>
 							</a></td>
 						</tr>
@@ -57,7 +57,7 @@
 			</div>
 		</div>
 		
-		<div laytou:include="dialogConfirmacao"></div>
+		<div layout:include="modalConfirmacao"></div>
 		
 	</div>
 </section>
