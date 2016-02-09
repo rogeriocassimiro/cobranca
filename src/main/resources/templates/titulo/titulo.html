@@ -40,11 +40,12 @@
 								th:text="${titulo.status.descricao}"
 								th:classappend="${titulo.pendente ? 'label-danger' : 'label-success'}">
 							</span></td>
-							<td class="text-center"><a class="btn btn-link btn-xs"
+							<td class="text-center"><a class="btn btn-link btn-xs" title="Editar" rel="tooltip" data-placement="top"
 								th:href="@{/rest/titulo/editar/{codigo}(codigo=${titulo.codigo})}">
 									<span class="glyphicon glyphicon-pencil"></span>
-							</a> 
-							<a class="btn btn-link btn-xs" data-toggle="modal" data-target="#modalConfirmacao" th:attr="data-codigo=${titulo.codigo}, data-descricao=${titulo.descricao}"	>
+							</a> <a class="btn btn-link btn-xs" data-toggle="modal"
+								data-target="#modalConfirmacao" title="Remover" rel="tooltip" data-placement="top"
+								th:attr="data-codigo=${titulo.codigo}, data-descricao=${titulo.descricao}">
 									<span class="glyphicon glyphicon-remove"></span>
 							</a></td>
 						</tr>
@@ -56,9 +57,9 @@
 				</table>
 			</div>
 		</div>
-		
+
 		<div layout:include="modalConfirmacao"></div>
-		
+
 	</div>
 </section>
 
